@@ -1,0 +1,18 @@
+services:
+
+  database:
+    image: mariadb:11
+    container_name: db-express-boilerplate
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - db-express-boilerplate:/var/lib/mysql
+
+volumes:
+  db-express-boilerplate:
